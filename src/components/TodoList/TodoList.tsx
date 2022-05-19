@@ -1,9 +1,9 @@
 import { FC } from "react"
-import { selectCount } from "../features/counter/counterSlice";
-import { useAppDispatch, useAppSelector } from "../store/hooks"
-import { selectTodos } from "../store/reducers/TodoSlice";
-import { RootState } from "../store/store";
-import TodoItem from "./TodoItem";
+import { selectCount } from "../../features/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { selectTodos } from "../../store/reducers/TodoSlice";
+import { RootState } from "../../store/store";
+import TodoItem from "../TodoItem/TodoItem";
 
 
 const Todos = () => {

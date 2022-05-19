@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ITodo } from "../../models/ITodo";
 import { RootState } from "../store";
 
@@ -14,15 +14,13 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        increment: (state) => {
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
-            state.todos = [];
+        addTodo: (state, action: PayloadAction<ITodo>) => {
+            state.todos.push(action.payload);
           },
     }
 })
+
+export const { addTodo } = todoSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos.todos;
 
