@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import TodoList from './components/TodoList/TodoList';
-import Input from './components/UI/Input';
+import Form from './components/Form';
+import './App.scss'
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Todo list</h1>
-      <Input />
+    <div className="app">
+      <h1 className='app__title'>Todo list</h1>
+      <section>
+        <Form />
+      </section>
+      <section>
+
+      </section>
     </div>
   );
 }

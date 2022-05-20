@@ -1,0 +1,7 @@
+.form {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    &__input {
+        border-radius: 5px;
+    }
+}

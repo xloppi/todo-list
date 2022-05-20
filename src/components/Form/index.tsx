@@ -1,7 +1,7 @@
-import './input.module.scss'
 import React, { FC, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { todoSlice } from '../../../store/reducers/TodoSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { todoSlice } from '../../store/reducers/TodoSlice';
+import styles from './form.module.scss'
 
 
 
@@ -18,13 +18,14 @@ const Input: FC = () => {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         dispatch(addTodo({id: Number(Date.now()), name: value}))
+        setValue('');
     }
 
     console.log(todos)
 
     return (
-        <form className='form'>
-            <input value={value} onChange={handleChange} className='form__input'></input>
+        <form className={styles.form}>
+            <input type="text" value={value} onChange={handleChange} className={styles.form__input}></input>
             <button className='form__button' onClick={handleSubmit}>+</button>
         </form>
     )
