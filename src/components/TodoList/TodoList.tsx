@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { selectCount } from "../../features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
-import { selectTodos } from "../../store/reducers/TodoSlice";
+import { fetchTodos } from "../../store/reducers/ActionCreators";
+import { selectTodos, todosFetching } from "../../store/reducers/TodoSlice";
 import { RootState } from "../../store/store";
 import TodoItem from "../TodoItem/TodoItem";
 
@@ -13,12 +14,15 @@ const Todos = () => {
     console.log(todos);
 
     return (
-        <div>
-            {todos.map(todo => 
-                <TodoItem key={todo.id} name={todo.name} />    
-            )}
-        </div>
+        <>
+            <button onClick={() => dispatch(fetchTodos())}>Получить список задач</button>
+            <div>
+                {todos.map(todo =>
+                    <TodoItem key={todo.id} name={todo.title} />
+                )}
+            </div>
+        </>
     );
-} 
+}
 
 export default Todos

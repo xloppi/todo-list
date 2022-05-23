@@ -12,7 +12,7 @@ function App() {
         <Form />
       </section>
       <section>
-
+        <TodoList />
       </section>
     </div>
   );

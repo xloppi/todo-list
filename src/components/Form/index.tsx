@@ -17,7 +17,7 @@ const Input: FC = () => {
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        dispatch(addTodo({id: Number(Date.now()), name: value}))
+        dispatch(addTodo({id: Number(Date.now()), title: value}))
         setValue('');
     }
 
