@@ -14,19 +14,17 @@ const Input: FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
-
+    
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        dispatch(addTodo({id: Number(Date.now()), title: value}))
+        dispatch(addTodo({id: Number(Date.now()), title: value, completed: false}))
         setValue('');
     }
-
-    console.log(todos)
 
     return (
         <form className={styles.form}>
             <input type="text" value={value} onChange={handleChange} className={styles.form__input}></input>
-            <button className='form__button' onClick={handleSubmit}>+</button>
+            <button className={styles.form__button} onClick={handleSubmit}></button>
         </form>
     )
 }

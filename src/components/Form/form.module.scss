@@ -1,7 +1,24 @@
 .form {
     display: grid;
-    grid-template-columns: 1fr 40px;
+    grid-template-columns: 1fr 70px;
+    column-gap: 5px;
+    
     &__input {
+        border: solid 1px #c7d3bf;
+        background-color: #e0dab8;
         border-radius: 5px;
+        padding:10px 5px;
+
+    }
+    &__button {
+        background: #536d6c url('../../images/add.svg') no-repeat center center;
+        border: 0px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }
