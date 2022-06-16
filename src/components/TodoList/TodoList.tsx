@@ -1,15 +1,12 @@
-import { FC } from "react";
-import { selectCount } from "../../features/counter/counterSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+ import { useAppDispatch, useAppSelector } from "../../store/hooks";
+ import { todoSlice } from "../../store/reducers/TodoSlice";
 import { fetchTodos } from "../../store/reducers/ActionCreators";
-import { selectTodos, todosFetching } from "../../store/reducers/TodoSlice";
-import { RootState } from "../../store/store";
-import TodoItem from "../TodoItem/TodoItem";
+import { selectTodos } from "../../store/reducers/TodoSlice";
+import TodoItem from "../TodoItem";
 
 const Todos = () => {
   const todos = useAppSelector(selectTodos);
   const dispatch = useAppDispatch();
-
   console.log(todos);
 
   return (
@@ -25,9 +22,6 @@ const Todos = () => {
               id={todo.id}
               title={todo.title}
               completed={todo.completed}
-              onComplete={() => {}}
-              onRemove={() => {}}
-              onEdit={() => {}}
             />
           ))
         ) : (

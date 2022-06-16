@@ -9,7 +9,7 @@ interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: [],
+  todos: [{ id: 1, title: 'Первая задача', completed: true}, { id: 2, title: 'Вторая задача', completed: false}],
   isLoading: false,
   error: null,
 };
@@ -22,10 +22,10 @@ export const todoSlice = createSlice({
       state.todos.push(action.payload);
     },
     removeTodo: (state, action: PayloadAction<number>) => {
-      state.todos.filter((todo) => todo.id !== action.payload);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
     updateTodo: (state, action: PayloadAction<ITodo>) => {
-      state.todos.map((todo) => todo.id === action.payload.id ? action.payload : todo)
+      state.todos = state.todos.map((todo) => todo.id === action.payload.id ? action.payload : todo)
     },
     todosFetching: (state) => {
       state.isLoading = true;
@@ -41,8 +41,6 @@ export const todoSlice = createSlice({
     },
   },
 });
-
-export const { addTodo, todosFetching } = todoSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos.todos;
 
